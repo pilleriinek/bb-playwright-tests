@@ -1,0 +1,15 @@
+// for POST /loan/calculate
+export const calculateRequestPayloads = {
+  validSLEE01: {
+    currency: 'EUR', 
+    productType: 'SMALL_LOAN_EE01',
+    maturity: 60, 
+    administrationFee: 3.99, 
+    conclusionFee: 100, 
+    amount: 5000, 
+    monthlyPaymentDay: 15, 
+    interestRate: 14.9
+  },
+  empty: {}
+  
+};
