@@ -31,7 +31,7 @@ test.describe('Loan calculator modal tests', () => {
 
     // Verify for "Kuumakse" that data is from POST /loan/endpoint response
     const monthlyPayment = page.locator('.bb-labeled-value__value');
-    await expect(monthlyPayment).toHaveText('€' + data.monthlyPayment.toString());
+    await expect(monthlyPayment).toHaveText('€' + data.monthlyPayment.toFixed(2));
 
     // "Jätka" button
     await expect(page.getByRole('button', { name: 'Jätka' })).toBeVisible();
@@ -64,7 +64,7 @@ test.describe('Loan calculator modal tests', () => {
 
     // Verify for "Kuumakse" that data is from POST /loan/endpoint response
     const monthlyPayment = page.locator('.bb-labeled-value__value');
-    await expect(monthlyPayment).toHaveText('€' + data.monthlyPayment.toString());
+    await expect(monthlyPayment).toHaveText('€' + data.monthlyPayment.toFixed(2));
 
     // Verify that loan sum is displayed in the loan application header after saving the modal
     await page.getByRole('button', { name: 'Jätka' }).click();
@@ -110,7 +110,7 @@ test.describe('Loan calculator modal tests', () => {
     await expect(periodField).toHaveValue(minPeriod.toString());
 
     let monthlyPayment = page.locator('.bb-labeled-value__value');
-    await expect(monthlyPayment).toHaveText('€' + data.monthlyPayment.toString());
+    await expect(monthlyPayment).toHaveText('€' + data.monthlyPayment.toFixed(2));
 
     // max values
     modifiedPayload = {
@@ -131,7 +131,7 @@ test.describe('Loan calculator modal tests', () => {
     await expect(periodField).toHaveValue(maxPeriod.toString());
 
     monthlyPayment = page.locator('.bb-labeled-value__value');
-    await expect(monthlyPayment).toHaveText('€' + data.monthlyPayment.toString());
+    await expect(monthlyPayment).toHaveText('€' + data.monthlyPayment.toFixed(2));
 
   });
 

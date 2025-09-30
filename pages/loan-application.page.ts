@@ -8,6 +8,6 @@ export class loanApplicationPage {
   }
 
   async editLoanAmount() {
-    await this.page.getByRole('button', { name: 'Laenusumma' }).click(); // for editing the loan
+    await this.page.getByRole('button', { name: 'Laenusumma' }).click(); // for editing the loan amount saved
   }
 }
