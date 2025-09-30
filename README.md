@@ -1,6 +1,6 @@
 # Test Assignment
-A test assignment for loan modal caclulator.
-Observations and explanations: https://www.notion.so/Test-exercise-Bigbank-27818d4dd8a3806e81fffb2734887eeb?source=copy_link
+A test assignment for loan modal calculator.
+See [observations and explanations](https://www.notion.so/Test-exercise-Bigbank-27818d4dd8a3806e81fffb2734887eeb?source=copy_link).
 ---
 
 ## How to run locally
