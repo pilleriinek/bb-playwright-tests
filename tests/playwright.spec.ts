@@ -5,12 +5,12 @@ import { calculateRequestPayloads } from '../payloads/requests/calculate-loan.re
 import { CalculateLoanPayload, CalculateLoanResponse } from '../schemas/calculate-loan.schemas';
 
 test.describe('Loan calculator modal tests', () => {
-  let data: CalculateLoanResponse;
+  
   test.beforeEach(async ({ page, request }) => {
     // Save response from POST /loan/calculate
     const response = await calculate(request, calculateRequestPayloads.validSLEE01);
     expect(response.status()).toBe(200);
-    data = await response.json();
+    const data: CalculateLoanResponse = await response.json();
 
     // Load page
     const loanPage = new loanApplicationPage(page);
@@ -50,7 +50,7 @@ test.describe('Loan calculator modal tests', () => {
 
     const response = await calculate(request, modifiedPayload);
     expect(response.status()).toBe(200);
-    data = await response.json();
+    const data: CalculateLoanResponse = await response.json();
 
     const amountField = page.locator('#header-calculator-amount').locator('input');
     await amountField.fill(newAmount.toString());
@@ -97,7 +97,7 @@ test.describe('Loan calculator modal tests', () => {
     };
     let response = await calculate(request, modifiedPayload);
     expect(response.status()).toBe(200);
-    data = await response.json();
+    let data: CalculateLoanResponse = await response.json();
 
     const amountField = page.locator('#header-calculator-amount').locator('input');
     await amountField.fill(newMinAmount.toString());

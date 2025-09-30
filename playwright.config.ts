@@ -43,21 +43,21 @@ export default defineConfig({
       ]
     },
 
-    //{
-    //  name: 'firefox',
-    //  use: { ...devices['Desktop Firefox'] },
-    // testMatch: [
-    //    /.*\.spec\.ts$/
-    //  ]
-    //},
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+     testMatch: [
+        /.*\.spec\.ts$/
+      ]
+    },
 
-    //{
-    //  name: 'webkit',
-    //  use: { ...devices['Desktop Safari'] },
-    // testMatch: [
-    //    /.*\.spec\.ts$/
-    //  ]
-    //},
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+     testMatch: [
+        /.*\.spec\.ts$/
+      ]
+    },
 
      {
       name: 'api',
