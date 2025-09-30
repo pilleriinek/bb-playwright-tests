@@ -10,6 +10,5 @@ export const calculateRequestPayloads = {
     monthlyPaymentDay: 15, 
     interestRate: 14.9
   },
-  empty: {}
-  
+  empty: {} 
 };

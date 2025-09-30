@@ -1,11 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { loanApplicationPage } from '../pages/loan-application.page';
+import { LoanApplicationPage } from '../pages/loan-application.page';
 import { calculate } from '../requests/calculate-loan.requests';
 import { calculateRequestPayloads } from '../payloads/requests/calculate-loan.requests';
 import { CalculateLoanPayload, CalculateLoanResponse } from '../schemas/calculate-loan.schemas';
 
 test.describe('Loan calculator modal tests', () => {
-  
   test.beforeEach(async ({ page, request }) => {
     // Save response from POST /loan/calculate
     const response = await calculate(request, calculateRequestPayloads.validSLEE01);
@@ -13,7 +12,7 @@ test.describe('Loan calculator modal tests', () => {
     const data: CalculateLoanResponse = await response.json();
 
     // Load page
-    const loanPage = new loanApplicationPage(page);
+    const loanPage = new LoanApplicationPage(page);
     await loanPage.goto();
     await expect(page.getByText('Vali sobiv summa ja periood')).toBeVisible();
 
@@ -72,21 +71,15 @@ test.describe('Loan calculator modal tests', () => {
     await expect(definedLoanSum).toHaveText(newAmount + " €")
   });
 
-  /*
-    test('Loan calculator modal calculates new monthly payment after user changed the input via slider', async ({ page }) => {
-      // TODO
-    });
-  */
-
   test('Loan calculator modal calculates monthly payment using the min and max values', async ({ page, request }) => {
     const minAmount = 500; // maybe a better way would be to return the min/max/vase values from POST /pricing-conditions?
     const newMinAmount = 499;
-    const maxAmount = 30000; 
+    const maxAmount = 30000;
     const newMaxAmount = 300001;
 
-    const minPeriod = 6; 
+    const minPeriod = 6;
     const newMinPeriod = 5;
-    const maxPeriod = 120; 
+    const maxPeriod = 120;
     const newMaxPeriod = 121;
 
     // min values
@@ -134,6 +127,12 @@ test.describe('Loan calculator modal tests', () => {
     await expect(monthlyPayment).toHaveText('€' + data.monthlyPayment.toFixed(2));
 
   });
+
+  /*
+    test('Loan calculator modal calculates new monthly payment after user changed the input via slider', async ({ page }) => {
+      // TODO
+    });
+  */  
 
   /*
   test('Loan calculator modal fields handle not valid inserts', async ({ page }) => {

@@ -5,6 +5,5 @@ export const calculateResponses = {
     monthlyPayment: 124,
     apr: 18.96
   },
-
 };
 
